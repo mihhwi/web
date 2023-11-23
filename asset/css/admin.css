@@ -22,7 +22,13 @@ body {
     color: #000;
     
 }
-
+#admin_content_main{
+    margin-left: 20%;
+    width:100%;
+}
+#order-history-container{
+    display: none;
+}
 .navbar_namepage{
     margin-left: 20%;
     height: 60px;
@@ -137,7 +143,7 @@ body {
 #container_admin{
    display: none;
     width: 100%;
-    margin-left: 20%;
+    /* margin-left: 20%; */
     
 }
 .icon_add_item{
@@ -233,7 +239,7 @@ body {
     
     
     width: 100%;
-    margin-left: 20%;
+    /* margin-left: 20%; */
 }
 #dashboard_content{
     

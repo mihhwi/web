@@ -118,8 +118,9 @@ function taomenu() {
     }
     var nav = document.querySelector("#nav-container ul");
     nav.innerHTML = finalData;
-    // renderProductsInPage(0);
     renderProducts();
+    // renderProductsInPage(0);
+    
 }
 
 // ============================================================================================================================================
@@ -439,13 +440,13 @@ function searchProducts() {
 
     if (htmlProducts.length > 0) {
         // Nếu có sản phẩm phù hợp, hiển thị sản phẩm và ẩn thông báo "Không tìm thấy sản phẩm"
-        taomenu();
+        // taomenu();
         // document.getElementById('noResultMessage').style.display = 'none';
         renderProductsInPage(0);
         renderProducts();
     } else {
         // Nếu không có sản phẩm phù hợp, hiển thị thông báo "Không tìm thấy sản phẩm" và ẩn sản phẩm
-        document.getElementById('content-container').innerHTML = 'khôn tìm thấy sản phẩm';
+        document.getElementById('content-container').innerHTML = 'không tìm thấy sản phẩm';
         // document.getElementById('noResultMessage').style.display = 'block';
 
     }
@@ -517,6 +518,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Bắt sự kiện khi người dùng nhấn nút "Xác Nhận Đơn Hàng"
     const submitButton = document.querySelector('.submit');
+    renderOrderHistoryView();
 
 
     submitButton.addEventListener('click', function () {
@@ -608,7 +610,7 @@ function addProduct() {
             // Cập nhật biến htmlProducts để hiển thị sản phẩm mới
             htmlProducts = [...products];
 
-
+            // taomenu();
             // ... (phần code khác)
 
             // Xóa dữ liệu trong form sau khi thêm sản phẩm thành công

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var namePage = document.getElementsByClassName('name_list')
     var dashBoard=document.getElementById('dashboard')
     var productManage = document.getElementById('container_admin');
+    var orderHistory=document.getElementById('order-history-container')
     var currentNavItemContent = document.getElementsByClassName('name')[0]
 
     var currentSelected = dashBoard;
@@ -36,8 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     currentNavItemContent.textContent = namePage[1].textContent;
                     break;
                 case "manageOrders":
+                    orderHistory.style.display='block'
                     currentNavItemContent.textContent = namePage[2].textContent;
-
+                    currentSelected =orderHistory
                     break;
                 case "businessStats":
                     currentNavItemContent.textContent = namePage[3].textContent;
@@ -116,6 +118,10 @@ function logoutAdminFct(){
 //đơn hàng đã đặt
 
 // Lấy danh sách đơn hàng từ Local Storage
+// Bạn có thể thêm mã JavaScript sau vào mã của bạn
+
+// Lấy danh sách đơn hàng từ Local Storage
+function renderOrderHistoryView() {
 const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
 // Hiển thị danh sách đơn hàng
@@ -123,8 +129,22 @@ const orderHistoryContainer = document.getElementById('order-history-container')
 
 if (orders.length > 0) {
     let orderHtml = '<h2>Đơn Hàng Đã Đặt</h2>';
-    orders.forEach(order => {
-        // Tạo HTML cho mỗi đơn hàng và thêm vào orderHtml
+    
+    orders.forEach((order, index) => {
+        orderHtml += `<div class="order">
+            <h3>Đơn Hàng #${index + 1}</h3>
+            <p><strong>Tên:</strong> ${order.personalInfo.name}</p>
+            <p><strong>Số Điện Thoại:</strong> ${order.personalInfo.phone}</p>
+            <p><strong>Địa Chỉ:</strong> ${order.personalInfo.address}</p>
+            <!-- Thêm các trường thông tin khác của đơn hàng -->
+            <h4>Chi Tiết Đơn Hàng</h4>
+            <ul>`;
+        
+        order.cartItems.forEach(item => {
+            orderHtml += `<li>${item.name} - ${item.count} - ${item.price * item.count}đ</li>`;
+        });
+
+        orderHtml += `</ul></div>`;
     });
 
     orderHistoryContainer.innerHTML = orderHtml;
@@ -132,6 +152,7 @@ if (orders.length > 0) {
     orderHistoryContainer.innerHTML = '<p>Không có đơn hàng nào.</p>';
 }
 
+}
 
 
 
