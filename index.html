@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAST FOOD</title>
+
+    <link rel="stylesheet" href="asset/css/dichvu.css">
+    <link rel="stylesheet" href="asset/css/khuyenmai.css">
+    <link rel="stylesheet" href="asset/css/Style_index.css">
+    <link rel="stylesheet" href="asset/css/menu.css">
+    <link rel="stylesheet" href="asset/css/giohang.css">
+
+    <link rel="stylesheet" href="asset/font/themify-icons-font/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="asset/css/Style_login.css">
+    <link rel="stylesheet" href="asset/css/Style_contact.css">
+    <link rel="stylesheet" href="asset/css/admin.css">
+    <!-- <link rel="stylesheet" href="asset/css/admin.css"> -->
+    <script src="https://kit.fontawesome.com/2a9b643027.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="end-user" >
+
+        <!-- header -->
+
+        <div id="head">
+            <div class="container">
+                <div class="img-logo">
+                    <a href="index.html">
+                        <img src="asset/img/logo_wed.png" alt="cute chiken">
+                    </a>
+                </div>
+
+                <ul class="nav-select">
+                    <div class="icon_list products">
+                        <div class="ti-align-justify  pagewed"></div>
+                    </div>
+                    <a href="#">
+                        <li class="pagewed products home_btn">trang chủ</li>
+                    </a>
+                    <a href="#menu">
+                        <li class="pagewed menu_btn">thực đơn</li>
+                    </a>
+                    <a href="#sale">
+                        <li class="pagewed sale_btn">khuyến mãi</li>
+                    </a>
+                    <a href="#service">
+                        <li class="pagewed service_btn">dịch vụ</li>
+                    </a>
+                    <a href="#contact">
+                        <li class="pagewed contact_btn">liên hệ</li>
+                    </a>
+                </ul>
+                <div class="icon">
+                    <div class="icon-user ti-shopping-cart" onclick="openModalCart()"></div>
+
+
+
+                    <span class="icon-user ti-user"></span>
+
+                    <div id="logout">
+                        <a id="nameuser" class="icon-user logout_item"></a>
+                        <a href="#" class="logout_btn icon-user logout_item">logout</a>
+                    </div>
+
+
+
+                    <div>
+                        <form action="" class="find_page">
+                            <input type="search" class="findbox" name placeholder="search...">
+                            <button class="btn_ti_search" onclick="searchProducts()">
+                                <div class="icon-user ti-search"></div>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- trang chủ -->
+        <div id="home_page">
+            <!-- slider -->
+            <div id="slider-product">
+                <div class="slider">
+                    <div class="img-slider" style="background-image: url('asset/img/img-test/iloveimg-resized/1.jpg')">
+                    </div>
+                </div>
+            </div>
+
+            <div id="content">
+
+                <div class="menu">
+                    <div class="header-menu">
+                        <img class="logo-menu" src="asset/img/logo_wed.png" alt="logo">
+                        <h1 class="title-menu">món ngon hôm nay</h1>
+                    </div>
+                    <div class="selection-menu"
+                        style="background-image: url('asset/img/img-test/monngonmoingay1.jpg');">
+                        <div class="bottom_select">
+
+                            <img class="name_img" src="asset/img/img-test/iloveimg-resized/Món ngon Mỗi ngày.png"
+                                alt="món ngon mỗi ngày">
+
+                            <a href="menu.html"><button class="btn-choice">
+                                    đặt hàng
+                                </button></a>
+
+                        </div>
+
+                    </div>
+                    <div class="selection-menu"
+                        style="background-image: url('asset/img/img-test/monngonmoingay1.jpg');">
+                        <div class="bottom_select">
+
+                            <img class="name_img" src="asset/img/img-test/iloveimg-resized/Món ngon Mỗi ngày.png"
+                                alt="món ngon mỗi ngày">
+
+                            <a href="menu.html"><button class="btn-choice">
+                                    đặt hàng
+                                </button></a>
+
+                        </div>
+
+                    </div>
+                    <div class="selection-menu"
+                        style="background-image: url('asset/img/img-test/monngonmoingay1.jpg');">
+                        <div class="bottom_select">
+
+                            <img class="name_img" src="asset/img/img-test/iloveimg-resized/Món ngon Mỗi ngày.png"
+                                alt="món ngon mỗi ngày">
+
+                            <a href="menu.html"><button class="btn-choice">
+                                    đặt hàng
+                                </button></a>
+
+                        </div>
+
+                    </div>
+                    <div class="selection-menu"
+                        style="background-image: url('asset/img/img-test/monngonmoingay1.jpg');">
+                        <div class="bottom_select">
+
+                            <img class="name_img" src="asset/img/img-test/iloveimg-resized/Món ngon Mỗi ngày.png"
+                                alt="món ngon mỗi ngày">
+
+                            <a href="menu.html"><button class="btn-choice">
+                                    đặt hàng
+                                </button></a>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            <!-- service -->
+            <div id="service">
+                <div class="service-content">
+                    <h1 class="title-service">DỊCH VỤ</h1>
+                    <p class="slogan-service">TẬN HƯỞNG NHỮNG MÓN NGON BÊN GIA ĐÌNH CÙNG ABC</p>
+                    <div class="wrapper">
+                        <div class="service-selection"><img
+                                src="asset/img/img-test/iloveimg-resized/ecofood-logo-template/ODUJEJ0.jpg"
+                                alt="contact">
+                        </div>
+                        <div class="service-selection"><img
+                                src="asset/img/img-test/iloveimg-resized/ecofood-logo-template/ODUJEJ0.jpg"
+                                alt="contact">
+                        </div>
+                        <div class="service-selection"><img
+                                src="asset/img/img-test/iloveimg-resized/ecofood-logo-template/ODUJEJ0.jpg"
+                                alt="contact">
+                        </div>
+                        <div class="service-selection"><img
+                                src="asset/img/img-test/iloveimg-resized/ecofood-logo-template/ODUJEJ0.jpg"
+                                alt="contact">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- giới thiệu -->
+            <div id="introduce">
+                <div class="introduce_wrapper" style="background-image: url('asset/img/introduce.jpg');"
+                    alt="introduce">
+                    <div class="slogan">
+                        <h1>CUTE CHICKEN, XIN CHÀO QUÝ KHÁCH</h1>
+                        <P>Chúng tôi là Jollibee Việt Nam với hơn 100 cửa hàng trên khắp cả nước, chúng tôi mong muốn
+                            đem
+                            đến
+                            niềm vui ẩm thực cho mọi gia đình Việt bằng những món ăn có chất lượng tốt, hương vị tuyệt
+                            hảo,
+                            dịch
+                            vụ chu đáo với một mức giá hợp lý… Hãy đến và thưởng thức nhé!</P>
+
+                    </div>
+                    <a href="menu.html"><BUtton class="btn-introduce">đặt hàng</BUtton></a>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- kết thúc trang chủ -->
+        <!-- thực đơn -->
+        <div id="menu_page">
+
+        </div>
+        <!-- kết thúc thực đơn -->
+        <!-- khuyến mãi -->
+        <div id="sale_page">
+            <div class="banner_sale">
+                <img src="asset/img/bannerKM.png">
+            </div>
+            <div class="menu_sale">
+                <div class="list">
+                    <div class="item_sale">
+                        <img src="asset/img/item1.png">
+                        <h2>COMBO CHỈ TỪ 69K</h2>
+                    </div>
+                    <div class="item_sale">
+                        <img src="asset/img/item2.jpg">
+                        <h2>COMBO CHỈ TỪ 50K</h2>
+                    </div>
+                    <div class="item_sale">
+                        <img src="asset/img/item3.jpg">
+                        <h2>COMBO CHỈ TỪ 59K</h2>
+                    </div>
+                    <div class="item_sale">
+                        <img src="asset/img/item4.jpg">
+                        <h2>COMBO CHỈ TỪ 49K</h2>
+                    </div>
+                    <div class="item_sale">
+                        <img src="asset/img/item5.jpg">
+                        <h2>COMBO CHỈ TỪ 40K</h2>
+                    </div>
+                    <div class="item_sale">
+                        <img src="asset/img/item6.jpg">
+                        <h2>COMBO CHỈ TỪ 39K</h2>
+                    </div>
+                    <div class="item_sale">
+                        <img src="asset/img/item7.jpg">
+                        <h2>COMBO CHỈ TỪ 39K</h2>
+                    </div>
+                    <div class="item_sale">
+                        <img src="asset/img/item8.png">
+                        <h2>COMBO CHỈ TỪ 29K</h2>
+                    </div>
+                    <div class="item_sale">
+                        <img src="asset/img/item9.png">
+                        <h2>COMBO CHỈ TỪ 59K</h2>
+                    </div>
+                </div>
+                <ul class="listPage"></ul>
+            </div>
+            <!-- Chi tiet khuyen mai -->
+            <div class="detail_sale">
+                <div class="box_sale">
+                    <div class="content">
+                        <h1>COMBO CHỈ TỪ 69K</h1>
+                        <p>Chào tháng 12, cần năng lượng mới, đã có Bee lo nhé CuteCKFans ơi!</p>
+                        <p>Thả ga gọi món CuteCK giao tận nhà, Khi mua combo gồm 1 hamberger, 1 ly nước và 1 khoai tây
+                            chiên
+                            sẽ được tặng liền tay 1 lon Sting !</p>
+                        <p>Chờ gì mà không chốt đơn ngay bạn ơi!!!</p>
+                        <ul>
+                            <li>- Thời gian chương trình: Từ ngày 01/09 - 30/11/2023</li>
+                            <li>- Chương trình áp dụng tại các cửa hàng khu vực miền Tây, miền Bắc, Đông Nam Bộ, Hồ Chí
+                                Minh, miền Trung</li>
+                            <li>- Không áp dụng cho đơn hàng lớn, tiệc sinh nhật</li>
+                            <li>- Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                        </ul>
+                        <p>Chần chờ gì mà không gọi giao hàng ngay nào !!!</p>
+                        <p>........................</p>
+                        <p>CUTECHICKEN Việt Nam</p>
+                        <p>Hotline: 1900 1533</p>
+                        <p>Website: http://www.jollibee.com.vn/</p>
+                        <p>CuteCK App</p>
+                        <p>#CUTECHICKEN #CUTECHICKENVietNam #CUTECKfans #FreeStingLon</p>
+                    </div>
+                    <div class="close_login_sale ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_sale">
+                    <div class="content">
+                        <h1>COMBO CHỈ TỪ 50K</h1>
+                        <p>Chào tháng 12, cần năng lượng mới, đã có Bee lo nhé CuteCKFans ơi!</p>
+                        <p>Thả ga gọi món CuteCK giao tận nhà, Khi mua combo gồm 1 hamberger và 1 khoai tây chiên sẽ
+                            được
+                            tặng liền tay 1 lon Sting !</p>
+                        <p>Chờ gì mà không chốt đơn ngay bạn ơi!!!</p>
+                        <ul>
+                            <li>- Thời gian chương trình: Từ ngày 01/09 - 30/11/2023</li>
+                            <li>- Chương trình áp dụng tại các cửa hàng khu vực miền Tây, miền Bắc, Đông Nam Bộ, Hồ Chí
+                                Minh, miền Trung</li>
+                            <li>- Không áp dụng cho đơn hàng lớn, tiệc sinh nhật</li>
+                            <li>- Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                        </ul>
+                        <p>Chần chờ gì mà không gọi giao hàng ngay nào !!!</p>
+                        <p>........................</p>
+                        <p>CUTECHICKEN Việt Nam</p>
+                        <p>Hotline: 1900 1533</p>
+                        <p>Website: http://www.jollibee.com.vn/</p>
+                        <p>CuteCK App</p>
+                        <p>#CUTECHICKEN #CUTECHICKENVietNam #CUTECKfans #FreeStingLon</p>
+                    </div>
+                    <div class="close_login_sale ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_sale">
+                    <div class="content">
+                        <h1>COMBO CHỈ TỪ 59K</h1>
+                        <p>Chào tháng 12, cần năng lượng mới, đã có Bee lo nhé CuteCKFans ơi!</p>
+                        <p>Thả ga gọi món CuteCK giao tận nhà, Khi mua combo gồm 1 hamberger,1 đùi gà và 1 ly pepsi sẽ
+                            được
+                            tặng liền tay 1 lon Sting !</p>
+                        <p>Chờ gì mà không chốt đơn ngay bạn ơi!!!</p>
+                        <ul>
+                            <li>- Thời gian chương trình: Từ ngày 01/09 - 30/11/2023</li>
+                            <li>- Chương trình áp dụng tại các cửa hàng khu vực miền Tây, miền Bắc, Đông Nam Bộ, Hồ Chí
+                                Minh, miền Trung</li>
+                            <li>- Không áp dụng cho đơn hàng lớn, tiệc sinh nhật</li>
+                            <li>- Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                        </ul>
+                        <p>Chần chờ gì mà không gọi giao hàng ngay nào !!!</p>
+                        <p>........................</p>
+                        <p>CUTECHICKEN Việt Nam</p>
+                        <p>Hotline: 1900 1533</p>
+                        <p>Website: http://www.jollibee.com.vn/</p>
+                        <p>CuteCK App</p>
+                        <p>#CUTECHICKEN #CUTECHICKENVietNam #CUTECKfans #FreeStingLon</p>
+                    </div>
+                    <div class="close_login_sale ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_sale">
+                    <div class="content">
+                        <h1>DEAL HỜI CHỈ TỪ 49K</h1>
+                        <p>Chào tháng 12, cần năng lượng mới, đã có Bee lo nhé CuteCKFans ơi!</p>
+                        <p>Thả ga gọi món CuteCK giao tận nhà, Khi mua combo gồm 1 mì ý, 1 đùi gà và 1 pepsi sẽ được
+                            tặng
+                            liền tay 1 lon Sting !</p>
+                        <p>Chờ gì mà không chốt đơn ngay bạn ơi!!!</p>
+                        <ul>
+                            <li>- Thời gian chương trình: Từ ngày 01/09 - 30/11/2023</li>
+                            <li>- Chương trình áp dụng tại các cửa hàng khu vực miền Tây, miền Bắc, Đông Nam Bộ, Hồ Chí
+                                Minh, miền Trung</li>
+                            <li>- Không áp dụng cho đơn hàng lớn, tiệc sinh nhật</li>
+                            <li>- Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                        </ul>
+                        <p>Chần chờ gì mà không gọi giao hàng ngay nào !!!</p>
+                        <p>........................</p>
+                        <p>CUTECHICKEN Việt Nam</p>
+                        <p>Hotline: 1900 1533</p>
+                        <p>Website: http://www.jollibee.com.vn/</p>
+                        <p>CuteCK App</p>
+                        <p>#CUTECHICKEN #CUTECHICKENVietNam #CUTECKfans #FreeStingLon</p>
+                    </div>
+                    <div class="close_login_sale ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_sale">
+                    <div class="content">
+                        <h1>DEAL HỜI CHỈ TỪ 40K</h1>
+                        <p>Chào tháng 12, cần năng lượng mới, đã có Bee lo nhé CuteCKFans ơi!</p>
+                        <p>Thả ga gọi món CuteCK giao tận nhà, Khi mua combo gồm 1 salad, 1 đùi gà và 1 pepsi sẽ được
+                            tặng
+                            liền tay 1 lon Sting !</p>
+                        <p>Chờ gì mà không chốt đơn ngay bạn ơi!!!</p>
+                        <ul>
+                            <li>- Thời gian chương trình: Từ ngày 01/09 - 30/11/2023</li>
+                            <li>- Chương trình áp dụng tại các cửa hàng khu vực miền Tây, miền Bắc, Đông Nam Bộ, Hồ Chí
+                                Minh, miền Trung</li>
+                            <li>- Không áp dụng cho đơn hàng lớn, tiệc sinh nhật</li>
+                            <li>- Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                        </ul>
+                        <p>Chần chờ gì mà không gọi giao hàng ngay nào !!!</p>
+                        <p>........................</p>
+                        <p>CUTECHICKEN Việt Nam</p>
+                        <p>Hotline: 1900 1533</p>
+                        <p>Website: http://www.jollibee.com.vn/</p>
+                        <p>CuteCK App</p>
+                        <p>#CUTECHICKEN #CUTECHICKENVietNam #CUTECKfans #FreeStingLon</p>
+                    </div>
+                    <div class="close_login_sale ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_sale">
+                    <div class="content">
+                        <h1>COMBO CHỈ TỪ 39K </h1>
+                        <p>Chào tháng 12, cần năng lượng mới, đã có Bee lo nhé CuteCKFans ơi!</p>
+                        <p>Thả ga gọi món CuteCK giao tận nhà, khi mua combo gồm 4 đùi gà sẽ được tặng liền tay 1 lon
+                            Sting
+                            !</p>
+                        <p>Chờ gì mà không chốt đơn ngay bạn ơi!!!</p>
+                        <ul>
+                            <li>- Thời gian chương trình: Từ ngày 01/09 - 30/11/2023</li>
+                            <li>- Chương trình áp dụng tại các cửa hàng khu vực miền Tây, miền Bắc, Đông Nam Bộ, Hồ Chí
+                                Minh, miền Trung</li>
+                            <li>- Không áp dụng cho đơn hàng lớn, tiệc sinh nhật</li>
+                            <li>- Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                        </ul>
+                        <p>Chần chờ gì mà không gọi giao hàng ngay nào !!!</p>
+                        <p>........................</p>
+                        <p>CUTECHICKEN Việt Nam</p>
+                        <p>Hotline: 1900 1533</p>
+                        <p>Website: http://www.jollibee.com.vn/</p>
+                        <p>CuteCK App</p>
+                        <p>#CUTECHICKEN #CUTECHICKENVietNam #CUTECKfans #FreeStingLon</p>
+                    </div>
+                    <div class="close_login_sale ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_sale">
+                    <div class="content">
+                        <h1>DEAL HỜI CHỈ TỪ 39K</h1>
+                        <p>Chào tháng 12, cần năng lượng mới, đã có Bee lo nhé CuteCKFans ơi!</p>
+                        <p>Thả ga gọi món CuteCK giao tận nhà, Khi mua combo gồm 1 hamberger và 2 đùi gà sẽ được tặng
+                            liền
+                            tay 1 lon Sting !</p>
+                        <p>Chờ gì mà không chốt đơn ngay bạn ơi!!!</p>
+                        <ul>
+                            <li>- Thời gian chương trình: Từ ngày 01/09 - 30/11/2023</li>
+                            <li>- Chương trình áp dụng tại các cửa hàng khu vực miền Tây, miền Bắc, Đông Nam Bộ, Hồ Chí
+                                Minh, miền Trung</li>
+                            <li>- Không áp dụng cho đơn hàng lớn, tiệc sinh nhật</li>
+                            <li>- Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                        </ul>
+                        <p>Chần chờ gì mà không gọi giao hàng ngay nào !!!</p>
+                        <p>........................</p>
+                        <p>CUTECHICKEN Việt Nam</p>
+                        <p>Hotline: 1900 1533</p>
+                        <p>Website: http://www.jollibee.com.vn/</p>
+                        <p>CuteCK App</p>
+                        <p>#CUTECHICKEN #CUTECHICKENVietNam #CUTECKfans #FreeStingLon</p>
+                    </div>
+                    <div class="close_login_sale ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_sale">
+                    <div class="content">
+                        <h1>DEAL HỜI CHỈ TỪ 29K</h1>
+                        <p>Chào tháng 12, cần năng lượng mới, đã có Bee lo nhé CuteCKFans ơi!</p>
+                        <p>Thả ga gọi món CuteCK giao tận nhà, Khi mua combo gồm 1 hamberger và 1 coca sẽ được tặng liền
+                            tay
+                            1 lon Sting !</p>
+                        <p>Chờ gì mà không chốt đơn ngay bạn ơi!!!</p>
+                        <ul>
+                            <li>- Thời gian chương trình: Từ ngày 01/09 - 30/11/2023</li>
+                            <li>- Chương trình áp dụng tại các cửa hàng khu vực miền Tây, miền Bắc, Đông Nam Bộ, Hồ Chí
+                                Minh, miền Trung</li>
+                            <li>- Không áp dụng cho đơn hàng lớn, tiệc sinh nhật</li>
+                            <li>- Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                        </ul>
+                        <p>Chần chờ gì mà không gọi giao hàng ngay nào !!!</p>
+                        <p>........................</p>
+                        <p>CUTECHICKEN Việt Nam</p>
+                        <p>Hotline: 1900 1533</p>
+                        <p>Website: http://www.jollibee.com.vn/</p>
+                        <p>CuteCK App</p>
+                        <p>#CUTECHICKEN #CUTECHICKENVietNam #CUTECKfans #FreeStingLon</p>
+                    </div>
+                    <div class="close_login_sale ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_sale">
+                    <div class="content">
+                        <h1>DEAL HỜI CHỈ TỪ 59K</h1>
+                        <p>Chào tháng 12, cần năng lượng mới, đã có Bee lo nhé CuteCKFans ơi!</p>
+                        <p>Thả ga gọi món CuteCK giao tận nhà, Khi mua combo gồm 1 hotdog, 1 khoai tây chiên và 1 coca
+                            sẽ
+                            được tặng liền tay 1 lon Sting !</p>
+                        <p>Chờ gì mà không chốt đơn ngay bạn ơi!!!</p>
+                        <ul>
+                            <li>- Thời gian chương trình: Từ ngày 01/09 - 30/11/2023</li>
+                            <li>- Chương trình áp dụng tại các cửa hàng khu vực miền Tây, miền Bắc, Đông Nam Bộ, Hồ Chí
+                                Minh, miền Trung</li>
+                            <li>- Không áp dụng cho đơn hàng lớn, tiệc sinh nhật</li>
+                            <li>- Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                        </ul>
+                        <p>Chần chờ gì mà không gọi giao hàng ngay nào !!!</p>
+                        <p>........................</p>
+                        <p>CUTECHICKEN Việt Nam</p>
+                        <p>Hotline: 1900 1533</p>
+                        <p>Website: http://www.jollibee.com.vn/</p>
+                        <p>CuteCK App</p>
+                        <p>#CUTECHICKEN #CUTECHICKENVietNam #CUTECKfans #FreeStingLon</p>
+                    </div>
+                    <div class="close_login_sale ti-close close_page_sale"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- kết thúc khuyến mãi -->
+        <!-- dịch vụ -->
+        <div id="service_page">
+            <div id="banner_service">
+                <div class="boxx">
+                    <h2>DỊCH VỤ</h2>
+                    <p>Tận hưởng những khoảnh khắc trọn vẹn cùng CUTE CHICKEN</p>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="item_service" style="background-color: wheat;">
+                    <div class="box-left">
+                        <img src="asset/img/logo_web.png">
+                    </div>
+                    <div class="box-right">
+                        <h2>CUTE CK KID CLUB</h2>
+                        <p>Hãy để con bạn thoả thích thể hiện và khám phá tài năng bên trong của mình cùng cơ hội gặp gỡ
+                            những bạn đồng lứa khác tại
+                            CUTE CK Kids Club. Cùng tìm hiểu thêm thông tin về CUTE CK Kids Club và tham gia ngay.</p>
+                        <button>XEM THÊM</button>
+                    </div>
+                </div>
+                <div class="item_service">
+                    <div class="box-left">
+                        <img src="asset/img/logo_web.png">
+                    </div>
+                    <div class="box-right">
+                        <h2>ĐẶT CHỖ</h2>
+                        <p>Nếu bạn không muốn gặp phải tình trạng hết chỗ ngồi thì bạn có thể đặt trước
+                            và tận hưởng những món ăn tuyệt vời cùng với một không gian thoải mái nhất nhé !</p>
+                        <button>XEM THÊM</button>
+                    </div>
+                </div>
+                <div class="item_service" style="background-color: wheat;">
+                    <div class="box-left">
+                        <img src="asset/img/logo_web.png">
+                    </div>
+                    <div class="box-right">
+                        <h2>ĐẶT TIỆC</h2>
+                        <p>Bạn đang tìm ý tưởng cho một buổi tiệc nhỏ mà vẫn thật đặc biệt ?
+                            Hãy chọn những bữa tiệc của CUTE CHICKEN. Sẽ có nhiều điều vui nhộn và rất đáng nhớ dành cho
+                            bạn.</p>
+                        <button>XEM THÊM</button>
+                    </div>
+                </div>
+                <div class="item_service">
+                    <div class="box-left">
+                        <img src="asset/img/logo_web.png">
+                    </div>
+                    <div class="box-right">
+                        <h2>ĐƠN HÀNG LỚN</h2>
+                        <p>Để phục vụ sở thích quây quần cùng gia đình và bạn bè, chương trình chiết khấu hấp dẫn dành
+                            cho
+                            những đơn hàng
+                            lớn đã ra đời để đem đến những lựa chọn tiện lợi hơn cho bạn.</p>
+                        <button>XEM THÊM</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mô tả chi tiết Dịch Vụ -->
+            <div class="detail_service">
+
+                <div class="box_service">
+                    <div class="content_service">
+                        <h1>VUI TUNG HOÀNH – NHẬN QUÀ CỰC ĐỈNH</h1>
+                        <p>Các bé luôn thích vui chơi sau các giờ học căng thẳng tại trường, CUTE CHICKEN biết được điều
+                            này
+                            và luôn thiết
+                            kế các chương trình phù hợp đáp ứng được nhu cầu vừa chơi - vừa học lại được ăn ngon. Đến
+                            với
+                            câu lạc bộ CUTE CHICKEN
+                            các bé sẽ có dịp gặp gỡ những người bạn mới, tham gia vào các trò chơi hấp dẫn, học thêm
+                            nhiều
+                            kỹ năng mới lại được nhận quà xinh mang về.
+                        </p>
+                        <p>Hãy đến với cửa hàng CUTE CHICKEN gần nhất tại khu vực để tham gia vào các hoạt động đặc biệt
+                            mà
+                            CUTE CHICKEN dành cho bé nhé.
+                            Bên cạnh đó các bé nhà bạn còn được vui chơi cùng bạn CHICKEN dễ thương và thưởng thức Mỳ Ý
+                            thơm
+                            ngon, Gà Rán giòn tan nữa đấy.
+                        </p>
+                        <p>
+                            Với tiêu chí Càng đông càng vui; Vui ăn ngon - vui được ưu đãi, khi khác hàng đặt nhiều phần
+                            ăn
+                            sẽ nhận được những ưu đãi tương ứng.
+                            Hãy liên hệ ngay với cửa hàng gần nhất để biết thêm thông tin chi tiết nhé !
+                        </p>
+                        <button>ĐẶT CHỖ</button>
+                    </div>
+                    <div class="close_login_service ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_service">
+                    <div class="content_service">
+                        <h1>ĐẶT TRƯỚC CHỖ NGỒI – THƯỞNG THỨC TRỌN VẸN</h1>
+                        <p>CUTE CHICKEN luôn muốn đáp ứng cho khách hàng của mình những điều tuyệt vời nhất. Để giúp cho
+                            khách
+                            hàng có thể thưởng thức những thức ăn thật trọn vẹn nhất. Nên CUTE CHICKEN đã
+                            hỗ trợ cho khách hàng được đặt chỗ trước khi đến cửa hàng !!!
+                        </p>
+                        <p>Các bạn còn chần chờ gì !!! Các bạn chỉ cần click vào nút ĐẶT CHỖ ở dưới và nhanh chân đến
+                            cửa
+                            hàng gần
+                            nhất để lựa chọn dịch vụ của CUTE CHICKEN.
+                        </p>
+                        <p>Hãy đến với cửa hàng CUTE CHICKEN gần nhất tại khu vực để tham gia vào các hoạt động đặc biệt
+                            mà
+                            CUTE CHICKEN dành cho bé nhé.
+                            Bên cạnh đó các bé nhà bạn còn được vui chơi cùng bạn CHICKEN dễ thương và thưởng thức Mỳ Ý
+                            thơm
+                            ngon, Gà Rán giòn tan nữa đấy.
+                        </p>
+                        <p>
+                            Với tiêu chí Càng đông càng vui; Vui ăn ngon - vui được ưu đãi, khi khác hàng đặt nhiều phần
+                            ăn
+                            sẽ nhận được những ưu đãi tương ứng.
+                            Hãy liên hệ ngay với cửa hàng gần nhất để biết thêm thông tin chi tiết nhé !
+                        </p>
+                        <button>ĐẶT CHỖ</button>
+                    </div>
+                    <div class="close_login_service ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_service">
+                    <div class="content_service">
+                        <h1>TIỆC VUI THẢ GA – ĂN NGON CỰC ĐÃ</h1>
+                        <p>CUTE CHICKEN luôn muốn làm điều tốt đẹp nhất cho người mà CUTE CHICKEN yêu quý nhất,
+                            còn bạn thì sao? Người bạn yêu quý nhất có phải là những thiên thần bé bỏng nhà mình?
+                            Bạn có muốn làm điều gì đó thật đặc biệt cho sinh nhật con bạn không?
+                            Nếu có thì hãy bắt tay với CUTE CHICKEN để thực hiện kế hoạch này nhé!
+                        </p>
+                        <p>Không cần phải đi đâu xa, không cần phải suy nghĩ tất tần tật mọi thứ sao
+                            cho một buổi tiệc hoàn chỉnh cho các Công chúa - Hoàng Tử nhà mình,
+                            các bạn chỉ cần click chọn gói phần ăn nào phù hợp cho con mình và đến cửa hàng gần nhất để
+                            lựa
+                            chọn dịch vụ của CUTE CHICKEN.
+                            Còn lại hãy để CUTE CHICKEN lo nhé!
+                        </p>
+                        <p>Hãy đến với cửa hàng CUTE CHICKEN gần nhất tại khu vực để tham gia vào các hoạt động đặc biệt
+                            mà
+                            CUTE CHICKEN dành cho bé nhé.
+                            Bên cạnh đó các bé nhà bạn còn được vui chơi cùng bạn CHICKEN dễ thương và thưởng thức Mỳ Ý
+                            thơm
+                            ngon, Gà Rán giòn tan nữa đấy.
+                        </p>
+                        <button>ĐẶT TIỆC</button>
+                    </div>
+                    <div class="close_login_service ti-close close_page_sale"></div>
+                </div>
+
+                <div class="box_service">
+                    <div class="content_service">
+                        <h1>CÀNG ĐÔNG CÀNG VUI</h1>
+                        <p>Để phục vụ sở thích quây quần cùng gia đình và bạn bè, chương trình chiết khấu hấp dẫn dành
+                            cho
+                            những đơn hàng lớn đã ra đời để
+                            đem đến những lựa chọn tiện lợi hơn cho bạn. Liên hệ ngay với cửa hàng gần nhất để được phục
+                            vụ.
+                        </p>
+                        <p>Món ăn không chỉ ngon mà còn phải đông vui. CUTE CHICKEN cung cấp những ưu đãi hợp lý
+                            cho các bạn đang lựa chọn dịch vụ ăn ngon tại chỗ mà không phải đi xa.
+                        </p>
+                        <p>
+                            Với kinh nghiệm phục vụ cho các Trường học, Công ty, Văn Phòng, Ngân hàng, Đoàn thể, CUTE
+                            CHICKEN hiểu rõ tầm quan trọng của một buổi tiệc
+                            vui hoành tráng của tập thể là như thế nào nên CUTE CHICKEN tự thấy mình có trách nhiệm
+                            trong
+                            từng phần ăn phục vụ đến tay khách hàng.
+                        </p>
+                        <p>
+                            Với tiêu chí Càng đông càng vui; Vui ăn ngon - vui được ưu đãi, khi khác hàng đặt nhiều phần
+                            ăn
+                            sẽ nhận được những ưu đãi tương ứng.
+                            Hãy liên hệ ngay với cửa hàng gần nhất để biết thêm thông tin chi tiết nhé !
+                        </p>
+                        <button>ĐẶT NGAY</button>
+                    </div>
+                    <div class="close_login_service ti-close close_page_sale"></div>
+                </div>
+            </div>
+        </div>
+        <!-- kết thúc dịch vụ -->
+        <!-- liên hệ -->
+        <div id="contact">
+            <div id="wrapper_contact">
+                <div class="top_title">
+                    <h2 class="contact_title">LIÊN HỆ CHICKEN CUTE</h2>
+                </div>
+                <div class="main_contact">
+                    <div class="left_contact">
+                        <div id="wrapper_contact_main">
+                            <h3 class="header_left_contact">THÔNG TIN LIÊN HỆ</h3>
+                            <div class="address_contact">
+                                <div class="ti-user icon_contact"></div>
+                                <p>CHICKEN CUTE</p>
+                            </div>
+                            <div class="address_contact">
+                                <div class="ti-mobile icon_contact"></div>
+                                <p>1900 0000</p>
+                            </div>
+                            <div class="address_contact">
+                                <div class="ti-location-pin icon_contact"></div>
+                                <p>tòa A, số b, phường c, quận d, thành phố s, VIệt Nam</p>
+                            </div>
+                            <h3 class="header_left_contact">LIÊN HỆ ĐẾN CHÚNG TÔI</h3>
+                            <form action="" class="contact_me">
+                                <input type="text" class="input_text name_input" placeholder="*name">
+                                <input type="text" class="input_text phone_input" placeholder="*phone">
+                                <input type="email" class="input_text email_input" placeholder="*email">
+                                <textarea name="comment" id="comment" placeholder="*tin nhắn" cols="5" rows="3"
+                                    class="input_text"></textarea>
+                                <input type="submit" value="gửi">
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="right_contact">
+                        <div id="wrapper_contact_main">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6696584619403!2d106.67968337481817!3d10.759922359498402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1b7c3ed289%3A0xa06651894598e488!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTw6BpIEfDsm4!5e0!3m2!1svi!2s!4v1699382042246!5m2!1svi!2s"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- kết thúc liên hệ -->
+
+
+        <!-- footer -->
+        <div id="footer">
+            <div class="footer_wrapper">
+                <div class="contact">
+                    <div class="logo_footer">
+                        <a href="index.html"><img src="asset/img/logo_wed.png" alt="cute chicken"></a>
+                    </div>
+                    <div class="content_footer">
+                        <h1 class="connect_detail">CỬA HÀNG THỨC ĂN NHANH CUTE CHICKEN</h1>
+                        <h3 class="connect_detail">tòa A, số b, phường c, quận d, thành phố s, VIệt Nam</h3>
+                        <h3 class="connect_detail">SĐT: 08148*****</h3>
+                        <h3 class="connect_detail">Tổng Đài: 1900-0000</h3>
+                        <h3 class="connect_detail">email: ploc32207@gmail.com</h3>
+                    </div>
+                </div>
+
+                <div class="connect_fanpage">
+                    <p class="head_list"> hãy kết nối với chúng tôi</p>
+                    <ul class="list_fanpage">
+
+                        <li class=" footer_icon ti-facebook"></li>
+                        <li class=" footer_icon ti-instagram"></li>
+                        <li class=" footer_icon ti-twitter"></li>
+                        <li class=" footer_icon ti-linkedin"></li>
+                    </ul>
+                    <p>© 2023 - Bản quyền thuộc về nhóm </p>
+                </div>
+            </div>
+        </div>
+        <!-- login -->
+        <div id="login_form">
+            <div class="wrapper_form">
+                <div class="heading_form">
+                    <div class="close_login ti-close close_page"></div>
+                    <h1 id="login_heading_name">ĐĂNG NHẬP</h1>
+                    <img class="login_img" src="asset/img/logo_wed.png" alt="CUTE CHICKEN">
+                </div>
+                <div class="body_form">
+                    <form action="" class="login_input">
+                        <input type="text" placeholder="email/phone" class="login_input_infor login_name">
+                        <div class="error_message" id="nameAcc_message"></div>
+                        <input type="password" placeholder="password" class="login_input_infor login_password">
+                        <div class="error_message" id="password_message"></div>
+                        <input type="submit" value="login" class="btn login_btn">
+                        <div class="forget_register">
+                            <a href="#" class="login_forget_pass">
+                                forget password
+                            </a>
+                            <a href="#" class="register">
+                                register
+                            </a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- register -->
+        <div id="register_form">
+            <div class="wrapper_form">
+                <div class="heading_form">
+                    <div class="close_register ti-close close_page"></div>
+                    <h1 id="login_heading_name">ĐĂNG KÍ</h1>
+                    <img class="login_img" src="asset/img/logo_wed.png" alt="CUTE CHICKEN">
+                </div>
+                <div class="body_form">
+                    <form action="" class="login_input">
+                        <input type="text" placeholder="full name" class="login_input_infor register_name">
+                        <div class="error_message" id="fullnameMessage"></div>
+                        <input type="text" placeholder="phone" class="login_input_infor register_phone">
+                        <div class="error_message" id="phoneMessage"></div>
+
+                        <input type="text" placeholder="email" class="login_input_infor register_email">
+                        <div class="error_message" id="mailMessage"></div>
+                        <input type="password" placeholder="password" class="login_input_infor register_password">
+                        <div class="error_message" id="passwordMessage"></div>
+                        <div class="select_inform">
+                            <select name="giới tính" id="sex_select">
+                                <option value="">chọn giới tính</option>
+                                <option value="nam">Nam</option>
+                                <option value="nu">Nữ</option>
+                            </select>
+                            <p>ngày sinh: </p>
+                            <input type="date" id="birthday" placeholder="ngày sinh">
+                        </div>
+                        <input type="submit" value="register" class="btn register_btn">
+                        <div class="forget_register">
+                            <a href="#" class="login_return">
+                                <h5> Đã có tài khoản </h5>
+                            </a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- forget password -->
+        <div id="foget_pass_form">
+            <div class="wrapper_form">
+                <div class="heading_form">
+                    <div class="close_forget ti-close close_page"></div>
+                    <h1 id="login_heading_name">quên mật khẩu</h1>
+                    <img class="login_img" src="asset/img/logo_wed.png" alt="CUTE CHICKEN">
+                </div>
+                <div class="body_form">
+                    <form action="" class="login_input">
+                        <input type="text" placeholder="full name" class="login_input_infor register_name">
+                        <div class="select_inform">
+                            <select name="giới tính" id="sex_select">
+                                <option value="">chọn giới tính</option>
+                                <option value="nam">Nam</option>
+                                <option value="nu">Nữ</option>
+                            </select>
+                            <p>ngày sinh: </p>
+                            <input type="date" id="birthday" placeholder="ngày sinh">
+                        </div>
+                        <input type="submit" value="submit" class="btn register_btn">
+                        <div class="forget_register">
+                            <a href="#" class="login_return">
+                                <h5> Đã có tài khoản </h5>
+                            </a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <!-- thông tin cá nhân -->
+        <div id="information_form">
+            <div class="wrapper_form">
+                <div class="heading_form">
+                    <div class="close_infor ti-close close_page"></div>
+                    <h1 id="login_heading_name">thông tin khách hàng</h1>
+                    <img class="login_img" src="asset/img/logo_wed.png" alt="CUTE CHICKEN">
+                </div>
+                <div class="body_form">
+                    <form action="" class="information-detail">
+                        <div class="input_detail_infor">
+                            <label for="" class="title_input_infor">fullname:</label>
+                            <input type="text" class="fullname login_input_infor">
+
+                        </div>
+                        <div class="input_detail_infor">
+                            <label for="" class="title_input_infor">phone:</label>
+                            <input type="text" class="phone login_input_infor">
+
+                        </div>
+                        <div class="input_detail_infor">
+                            <label for="" class="title_input_infor">email:</label>
+                            <input type="text" class="email login_input_infor">
+
+                        </div>
+                        <div class="input_detail_infor">
+                            <label for="" class="title_input_infor">sex</label>
+                            <input type="text" class="sex login_input_infor">
+                        </div>
+                        <div class="input_detail_infor">
+                            <label for="" class="title_input_infor">ngày sinh</label>
+                            <input type="text" class="birthday login_input_infor">
+                        </div>
+                        <input type="button" value="sửa" class="btn edit_btn">
+
+
+                    </form>
+
+                    <!-- Thêm một phần để hiển thị đơn hàng đã đặt -->
+                    <div id="order-history">
+                        <!-- Nơi để hiển thị danh sách đơn hàng -->
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="cart-modal">
+            <div id="cart-wrapper">
+                <div id="cart-header">
+
+                    <div id="cart-text">
+                        <p>Giỏ hàng</p>
+                    </div>
+                    <i class="fa-solid fa-x" onclick="closeModalCart()"></i>
+                </div>
+
+                <div id="cart-content">
+
+                </div>
+
+                <div id="cart-footer">
+                    <button class="delete-all">Xóa tất cả</button>
+                    <div id="cart-total-price">
+
+                    </div>
+                    <button onclick="OpenCart()" class="submit-cart">Đặt hàng</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="product-detail-modal">
+
+        </div>
+        <!-- open đặt hàng -->
+        <div id="box_giohang" style="display: none;">
+            <div class="gio-hang" id="gio-hang">
+                <h1 class="tieuDe">Chi tiết đơn hàng </h1>
+                <div class="thongTinKhachHang">
+                    <section id="order-form">
+                        <h2>Thông Tin Cá Nhân</h2>
+                        <form class="infor_order" onsubmit="return validateForm()">
+                            <div class="input-group">
+                                <label for="name">Họ và Tên:</label>
+                                <input type="text" id="name" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="phone">Số Điện Thoại:</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="address">Địa Chỉ:</label>
+                                <input type="text" id="address" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="payment">Phương Thức Thanh Toán:</label>
+                                <select id="payment">
+                                    <option value="chuyenkhoan">Chuyển Khoản</option>
+                                    <option value="khinhanhang">Thanh Toán Khi Nhận Hàng</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="delivery-time">Thời Gian Giao Hàng:</label>
+                                <input type="datetime-local" id="delivery-time" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="notes">Ghi Chú Đơn Hàng:</label>
+                                <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+                            </div> <!-- Danh sách item giỏ hàng -->
+                            <div class="cart-item-in-order-form" style="height:fit-content ;">
+                                <div class="item-img_cart " style="height: fit-content;">
+
+                                </div>
+
+                                <div class="item-details">
+                                    <p class="item-name_cart ">sản phẩm</p>
+                                    <p class="item-price_cart">Đơn giá</p>
+                                    <p class="item-quantity_cart">Số lượng</p>
+                                    <p class="item-total_cart">Tổng tiền</p>
+                                    <input type="button" value="thao tác">
+                                </div>
+                            </div>
+                </div>
+
+                <button class="return" type="button">quay lại</button>
+                <button class="submit" type="submit">Xác Nhận Đơn Hàng</button>
+
+                </form>
+                </section>
+
+            </div>
+            <form class="form_donhang">
+
+            </form>
+
+        </div>
+        <!-- kết thúc đặt hàng -->
+    </div>
+    </div>
+    <!--admin -->
+    <div class="admin-container">
+        <div class="header_form">
+            <nav class="top_nav ">
+                <div class="findbox nav_item">
+                    <input type="search" name="" id="search-box">
+                    <div class="ti-search icon_admin"></div>
+                </div>
+                <div class="ti-user icon_admin nav_item"></div>
+                <div class="name-user"></div>
+
+            </nav>
+            <nav class="navbar_namepage">
+                <div class="name">BẢNG ĐIỀU KHIỂN</div>
+            </nav>
+        </div>
+        <div class="content_admin" id="content">
+            <nav class="admin-navbar_left">
+                <div class="top_navbar">
+                    <img src="/asset/img/cute cHicken.png" alt="logo wed" srcset="" class="img-logo">
+                    <div class="name_page">ADMIN CHICKEN CUTE</div>
+                </div>
+                <ul>
+                    <li data-target="home">
+                        <div class="ti-home icon_nav "></div>
+                        <a href="#" id="Home" class="name_list">
+                            BẢNG ĐIỀU KHIỂN
+                        </a>
+                    </li>
+                    <li data-target="product">
+                        <div class="ti-layout-accordion-list icon_nav" target="product">
+
+                        </div>
+
+                        <a href="#" id="manageProduct" class="name_list">
+                            QUẢN LÝ SẢN PHẨM
+
+                        </a>
+
+                    </li>
+                    <li data-target="manageOrders">
+                        <div class="ti-notepad icon_nav"></div>
+                        <a href="#" id="manageOrders" class="name_list">
+                            QUẢN LÝ ĐƠN HÀNG
+                        </a>
+                    </li>
+                    <li data-target="businessStats">
+                        <div class="ti-bar-chart icon_nav"></div>
+                        <a href="#" id="businessStats" class="name_list">
+                            THỐNG KÊ DOANH THU
+                        </a>
+                    </li>
+
+                    <li onclick="logoutAdminFct()">
+                        <div class="ti-power-off icon_nav"></div><a href="#">
+                            ĐĂNG XUẤT
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div id="dashboard">
+                <div id="dashboard_content">
+                    <div id="sum_product" class="dashboard_item">
+                        <div class="ti-archive icon_dashboard"></div>
+                        <div class="content_dashboard_item">
+
+                            <h2>số lượng sản phẩm</h2>
+
+                            <input type="text" class="input_sale">
+                        </div>
+                    </div>
+                    <div id="sum_order" class="dashboard_item">
+                        <div class="ti-notepad icon_dashboard"></div>
+                        <div class="content_dashboard_item">
+                            <h2>số lượng đơn hàng</h2>
+
+                            <input type="text" class="input_sale">
+                        </div>
+                    </div>
+                    <div id="week_sale" class="dashboard_item">
+                        <div class="ti-money icon_dashboard"></div>
+                        <div class="content_dashboard_item">
+
+                            <h2>doanh thu tuẩn</h2>
+
+                            <input type="text" class="input_sale">
+                        </div>
+                    </div>
+                    <div id="month_sale" class="dashboard_item">
+                        <div class="ti-money icon_dashboard"></div>
+                        <div class="content_dashboard_item">
+
+                            <h2>daonh thu tháng</h2>
+
+                            <input type="text" class="input_sale">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="container_admin">
+
+                <div class="ti-plus icon_add_item"></div>
+
+                <div class="item">
+                    <input type="image" src="/asset//img/garan.jpg" name="img_item" class="img_itetm">
+                    <div class="content_item">
+                        <h3 class="name_item">tên sản phẩm </h3>
+                        <h5 class="mota">mô tả sản phẩm</h5>
+                        <p class="price_item">50.00vnd</p>
+                    </div>
+                    <div>
+                        <input type="button" value="sửa" class="btn">
+                        <input type="button" value="xóa" class="btn">
+                    </div>
+                </div>
+                <div class="item">
+                    <input type="image" src="/asset//img/garan.jpg" name="img_item" class="img_itetm">
+                    <div class="content_item">
+                        <h3 class="name_item">tên sản phẩm </h3>
+                        <h5 class="mota">mô tả sản phẩm</h5>
+                        <p class="price_item">50.00vnd</p>
+                    </div>
+                    <div>
+                        <input type="button" value="sửa" class="btn">
+                        <input type="button" value="xóa" class="btn">
+                    </div>
+                </div>
+                <div class="item">
+                    <input type="image" src="/asset//img/garan.jpg" name="img_item" class="img_item_btn">
+                    <div class="content_item">
+                        <h3 class="name_item">tên sản phẩm </h3>
+                        <h5 class="mota">mô tả sản phẩm</h5>
+                        <p class="price_item">50.00vnd</p>
+                    </div>
+                    <div>
+                        <input type="button" value="sửa" class="btn">
+                        <input type="button" value="xóa" class="btn">
+                    </div>
+                </div>
+
+            </div>
+            <div id="productList" >
+            </div>
+            <div id="add_form" class="form_item">
+                <div id="header_form">thêm sản phẩm</div>
+                <form action="" class="edit_item">
+                    <label for="" class="input_label">hình ảnh:</label>
+                    <input type="file" name="img_input" id="img_input" class="itemInput">
+                    <label for="" class="input_label">tên sản phẩm:</label>
+                    <input type="text" class="nameInput itemInput">
+                    <label for="" class="input_label">mô tả sản phẩm:</label>
+                    <input type="text" class="describeInput itemInput">
+                    <label for="" class="input_label">số lượng</label>
+                    <input type="text" class="quantityInput itemInput">
+                    <label for="" class="input_label">loại</label>
+                    <select type="value" class="typeInput itemInput">
+                        <option value="0">combo lẻ 1</option>
+                        <option value="1">combo nhóm</option>
+                        <option value="2">thức ăn</option>
+                        <option value="3">thức uống</option>
+                    </select>
+                    <label for="" class="input_label">giá tiền:</label>
+                    <input type="text" class="priceInput itemInput">
+
+                    <input type="button" value="lưu" class="save">
+
+
+                </form>
+            </div>
+            <div id="order-history-container">
+
+            </div>
+            <!-- <div id="edit_form" class="form_item">
+                <div id="header_form">sản phẩm</div>
+                <form action="" class="edit_item">
+                    <label for="" class="input_label">hình ảnh:</label>
+                    <input type="file" name="img_input" id="img_input" class="itemInput">
+                    <label for="" class="input_label">tên sản phẩm:</label>
+                    <input type="text" class="nameInput itemInput">
+                    <label for="" class="input_label">mô tả sản phẩm:</label>
+                    <input type="text" class="describeInput itemInput">
+                    <label for="" class="input_label">giá tiền:</label>
+                    <input type="text" class="priceInput itemInput">
+
+                    <input type="button" value="lưu" class="save">
+                    
+
+                </form> -->
+        </div>
+
+
+        <!-- kết thúc admin -->
+
+
+
+</body>
+<script src="asset/js/index.js"></script>
+<script src="asset/js/menu.js"></script>
+<script src="asset/js/admin.js"></script>
+<script src="asset/js/motaDV.js"> </script>
+<script src="asset/js/script.js"></script>
+<script src="asset/js/motaKM.js"></script>
+
+
+</html>
