@@ -1,0 +1,256 @@
+/* login */
+#login_form{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 100 , 0.27);
+    
+}
+.wrapper_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 5%;
+    
+}
+.heading_form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    height: 101px;
+    background-color: #ffcc00;
+    padding: 0px 40px;
+    width: 100%;
+    justify-content: center;
+}
+.close_page{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    font-size: 20px;
+}
+.close_page:hover{
+    background: #000000;
+    background-color: wheat;
+    cursor: pointer;
+}
+.login_img{
+    width: 100px;;
+}
+#login_heading_name{
+    padding: inherit;
+}
+.body_form {
+    width: 60%;
+    display: flex;
+    height: 270px;
+    justify-content: center;
+    width: 100%;
+}
+.login_input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background: hsl(0, 0%, 100%);
+}
+.login_input_infor {
+    height: 20px;
+    padding: 20px 10px;
+    border: none;
+    border-bottom: solid darkgray;
+    margin-bottom: 18px;
+}
+.btn {
+    color: white;
+    height: 40px;
+    font-size: 25px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.btn:hover{
+    background: #ffcc0073;
+}
+
+.forget_register{
+    display: flex;
+    border-top: solid 1px darkgray;
+    padding-top: 10px;
+    text-align: center;
+    justify-content: space-between;
+}
+/* register */
+#register_form{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 100 , 0.27);
+    
+}
+
+#register_form .body_form{
+    height: 480px;
+}
+/* forgetpass */
+#foget_pass_form{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 100 , 0.27);
+}
+/* infor */
+#information_form .information-detail {
+    width: 50%;
+    align-content: unset;
+    /* margin: 0 10%; */
+}
+#information_form{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 100 , 0.27);
+}
+#information_form .wrapper_form {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+
+}
+#information_form .body_form {
+    width: 60%;
+    display: flex;
+    height: 650px;
+    width: 100%;
+    background-color: white;
+    flex-direction: row;
+}
+#information_form .input_detail_infor{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+#information_form .sex_birth{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#information_form .btn {
+    width: 82%;
+    height: 40px;
+    margin: 0px 34px;
+}
+.error_message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .success-message {
+    color: green;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .error-input {
+    border: 1px solid red;
+  }
+/* lịch sử đơn hàng */
+/* CSS cho danh sách đơn hàng */
+#order-history {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+/* CSS cho mỗi đơn hàng */
+.order {
+    margin-bottom: 20px;
+}
+
+/* CSS cho tiêu đề đơn hàng */
+.order h3 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* CSS cho chi tiết đơn hàng */
+.order ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* CSS cho mỗi sản phẩm trong đơn hàng */
+.order li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* CSS cho phần thông tin khách hàng */
+.order p {
+    margin: 5px 0;
+}
+
+/* CSS cho chi tiết đơn hàng */
+.order h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* CSS cho nút xác nhận đơn hàng */
+.confirm-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.confirm-btn:hover {
+    background-color: #45a049;
+}

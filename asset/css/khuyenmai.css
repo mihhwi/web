@@ -1,0 +1,122 @@
+
+.menu_sale{
+    margin: 0 auto;
+    height: 900px;
+}
+.banner_sale{
+    margin-top: 80px;
+}
+.banner_sale img{
+    width: 100%;
+    height: 500px;
+}
+.list{
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    /* column-gap: 50px; */
+    height: 780px;
+    justify-items: center;
+    justify-content: space-around;
+
+}
+.item_sale{
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    text-align: center;
+    border: solid 3px black;
+    border-radius: 20px;
+    height: 350px;
+    width: 80%;
+    margin: 20px 150px;
+    cursor: pointer;
+}
+.item_sale img{
+    width: 100%;
+    padding: 10px 5px;
+    height: 200px;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+.item_sale:hover img{
+    transform: translate(0,-30px);
+}
+h2{
+    margin-top: 30px;
+    font-weight: bold;
+}
+.listPage{
+    list-style: none;
+    text-align: center;
+    padding: 30px;
+    height: 300px;
+}
+.listPage li{
+    background-color:burlywood;
+    padding: 20px;
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.listPage .active{
+    background-color:chocolate;
+    color: white;
+}
+
+/* css detail các KM */
+.detail_sale{
+    display: none;
+    position: fixed;
+    background-color: #0000005a;
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: 1000px;
+}
+.box_sale {
+    display: none;
+    position: relative;
+    height: 650px;
+    width: 70%;
+    background-color: rgba(255, 204, 0, 0.9);
+    border: 2px solid antiquewhite;
+    border-radius: 20px;
+    margin: 5% 15%;
+    font-weight: bold;
+    padding-top: 30px;
+}
+.content {
+    width: 100%;
+    height: 800px;
+    font-size: 20px;
+    text-align: center;
+}
+/* h1{
+    width: 100%;
+    font-size: 30px;
+    padding: 20px 180px;
+} */
+p{
+    padding: 7px 0px;
+}
+.close_page_sale{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    margin: 4px;
+    font-size: 20px;
+    border-radius: 40%;
+    background-color: #000000;
+    color:#fff;
+}
+.close_page_sale:hover{
+    
+    background-color: wheat;
+    color: #000;
+    cursor: pointer; 
+}

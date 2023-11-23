@@ -1,0 +1,268 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;   
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #00000030;
+}
+
+.admin-container {
+    display: none;
+    flex-direction: column;
+    /* height: 100vh; */
+}
+.top_navbar{
+    display: flex;
+    height: 70px;
+    background-color: #f9ef23;
+    color: #000;
+    
+}
+
+.navbar_namepage{
+    margin-left: 20%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.856);
+    
+}
+.name_page{
+    line-height: 70px;
+    padding: 0 10px;
+    
+    
+}
+.name{
+    padding: 0 10px;
+    line-height: 60px;
+}
+.img-logo{
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+
+}
+.top_nav{
+    color: #000;
+    background-color:#ffcc00;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+.nav_item{
+   
+
+}
+.icon_admin{
+    padding: 10px ;
+    border-radius: 20px;
+    font-size: 25px;
+}
+.icon_admin:hover{
+    background-color: #000;
+    color: antiquewhite;
+}
+.findbox{
+    display: flex;
+    align-items: center;
+    background-color: bisque;
+    border-radius: 20px;
+}
+#search-box {
+    border-radius: 20px;
+    height: 45px;
+    width: 200px;
+    border: none;
+    padding-left: 10px;
+}
+
+.admin-navbar_left {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    /* padding: 10px; */
+    text-align: center;
+    width: 20%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+}
+
+.admin-navbar_left ul {
+    list-style: none;
+    
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.admin-navbar_left li {
+    padding: 20px 0;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    
+
+}
+.admin-navbar_left li:hover
+{
+    color: aliceblue;
+    background-color: #000;
+}
+
+
+.admin-navbar_left a {
+    text-decoration: none;
+    color: inherit;
+}
+.icon_nav{
+    padding: 0 20px ;
+}
+
+
+.content_admin {
+   
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+   
+}
+#container_admin{
+   display: none;
+    width: 100%;
+    margin-left: 20%;
+    
+}
+.icon_add_item{
+    font-size: 40px;
+    right: 0;
+    margin: 25px;
+    background-color: #000;
+    color:white;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 50%;
+}
+.icon_add_item:hover{
+    color: #000;
+    background-color: #ffffff;
+}
+
+
+#container_admin .item{
+    display: flex;
+    flex-direction: row;
+    
+    height: 200px;
+    justify-content: space-between;
+    margin: 20px;
+    padding : 10px;
+    background-color: #ffffff;
+
+}
+.img_itetm{
+    height: 100%;
+}
+.btn{
+    height: 100%;
+}
+.content_item{
+    width: 70%;
+    padding: 10px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* thêm sp */
+#add_form{
+    display: none;
+}
+.form_item{
+    
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background-color: darkgray;
+   
+    margin: 10px;
+   
+    position: fixed;
+    right: 0;
+    top: 137px;
+    bottom: 0;
+    /* align-items: baseline; */
+    justify-content: center;
+
+}
+#header_form{
+    height: 50px;
+    color: rgb(0, 0, 0);
+    background-color: #fc0;
+    text-align: center;
+    line-height: 50px;
+    margin-bottom: 20px;
+
+}
+.form_item .edit_item{
+    display: flex;
+    flex-direction: column;
+}
+.itemInput {
+    height: 30px;
+    margin-bottom: 20px;
+}
+.save{
+    margin-top: 20px;
+    color: aliceblue;
+    background-color: #ffcc00;
+    height: 30px;
+}
+.open{
+    display: block;
+}
+/* bảng điều khiển */
+#dashboard{
+    
+    
+    width: 100%;
+    margin-left: 20%;
+}
+#dashboard_content{
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.dashboard_item {
+    width: 45%;
+    height: 200px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    background-color: #fcfcfc;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.icon_dashboard{
+    font-size: 110px;
+}
+.content_dashboard_item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.input_sale{
+    height: 50px;
+    width: 100%;
+}
