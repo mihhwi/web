@@ -64,9 +64,9 @@ function transWidth() {
   var computedStyle = window.getComputedStyle(findBox);
   if (parseInt(computedStyle.width) < 300 || parseInt(openFindbox.style.width) < 300) {
     findBox.style.width = '220px';
-    
+
   }
- 
+
 }
 
 
@@ -110,7 +110,7 @@ var inforAccount = [
     password: 'adminPassword',
     isAdmin: true // Đặt trạng thái admin
   }
-  ,{
+  , {
     email: "ploc32207@gmail.com",
     fullName: "phan lộc",
     password: "23122004",
@@ -208,11 +208,11 @@ function login(event) {
       if (accountLogin.password === passwordLogin) {
         localStorage.setItem('loggedInAccount', JSON.stringify(accountLogin));
         logInAccount = accountLogin;
-        if (logInAccount.isAdmin) {
+        if (logInAccount.isAdmin==true) {
           // Nếu là admin, chuyển sang trang admin
-          document.getElementById('end-user').style.display='none'
-          document.getElementsByClassName('admin-container')[0].style.display='flex'
-          
+          document.getElementById('end-user').style.display = 'none'
+          document.getElementsByClassName('admin-container')[0].style.display = 'flex'
+
           return;
         } else {
           loginIcon.style.display = 'none'
@@ -228,7 +228,7 @@ function login(event) {
           sexSelect.disabled = true;
           birthdayInput.disabled = true;
           document.getElementsByClassName('login_input')[0].reset();
-          
+
         }
       }
       else {
@@ -237,23 +237,31 @@ function login(event) {
         return;
       }
     }
-    
+
     user.addEventListener('click', openInfor);
 
   }
   userName();
-  
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   var loggedInAccount = JSON.parse(localStorage.getItem('loggedInAccount'));
 
-  if (loggedInAccount!==null) {
-   
-    logInAccount = loggedInAccount;
-    loginIcon.style.display = 'none';
-    user.textContent = logInAccount.fullName;
-    LogOut.style.display = 'flex';
+  if (loggedInAccount !== null) {
+    if (loggedInAccount.isAdmin) {
+      // Nếu là admin, chuyển sang trang admin
+      document.getElementById('end-user').style.display = 'none'
+      document.getElementsByClassName('admin-container')[0].style.display = 'flex'
+
+     
+    }
+    else {
+      logInAccount = loggedInAccount;
+      loginIcon.style.display = 'none';
+      user.textContent = logInAccount.fullName;
+      LogOut.style.display = 'flex';
+    }
   }
 });
 
