@@ -150,7 +150,7 @@ body{
     position: relative;
     width: 100%;
     height: 100%;
-    box-shadow: 8px 8px 30px 6px rgb(255, 255, 255);
+    box-shadow: 8px 8px 30px 6px rgb(96, 96, 96);
 }
 
 #slider-wrapper img{
