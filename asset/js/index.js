@@ -189,7 +189,8 @@ forgetAccountBtn[0].addEventListener('click', forgetPassAcc)
 var logInAccount = '';
 
 //login
-var accountLogin = [];
+// var accountLogin = [];
+// test()
 function login(event) {
   event.preventDefault();
   var emailOrPhone = document.getElementsByClassName('login_name')[0].value;
@@ -227,6 +228,7 @@ function login(event) {
           sexSelect.disabled = true;
           birthdayInput.disabled = true;
           document.getElementsByClassName('login_input')[0].reset();
+          
         }
       }
       else {
@@ -240,7 +242,30 @@ function login(event) {
 
   }
   userName();
+  
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  var loggedInAccount = JSON.parse(localStorage.getItem('loggedInAccount'));
+
+  if (loggedInAccount!==null) {
+   
+    logInAccount = loggedInAccount;
+    loginIcon.style.display = 'none';
+    user.textContent = logInAccount.fullName;
+    LogOut.style.display = 'flex';
+  }
+});
+
+// function test(){
+//   if(loggedInAccount!==null){
+//     loginIcon.style.display = 'none'
+//           loginIcon.textContent = logInAccount.fullName;
+//           // renderOrderHistory();
+//           user.textContent = logInAccount.fullName;
+//           LogOut.style.display = 'flex'
+//   }
+// }
 
 function userName() {
   if (logInAccount) {
@@ -261,10 +286,7 @@ function logoutFunction() {
 
 }
 logOutBtn.addEventListener('click', logoutFunction)
-window.addEventListener('beforeunload', function () {
-  
-  logoutFunction();
-});
+
 
 // Đăng ký tài khoản
 var btnRegister = document.getElementsByClassName('register_btn')[0];
