@@ -123,6 +123,7 @@ function logoutAdminFct(){
 // Lấy danh sách đơn hàng từ Local Storage
 function renderOrderHistoryView() {
 const orders = JSON.parse(localStorage.getItem('orders')) || [];
+// localStorage.setItem('orderAll',JSON.stringify(orders))
 
 // Hiển thị danh sách đơn hàng
 const orderHistoryContainer = document.getElementById('order-history-container');
@@ -132,12 +133,12 @@ if (orders.length > 0) {
     
     orders.forEach((order, index) => {
         orderHtml += `<div class="order">
-            <h3>Đơn Hàng #${index + 1}</h3>
+            <h3>Đơn Hàng #${order.orderCode}</h3>
             <p><strong>Tên:</strong> ${order.personalInfo.name}</p>
             <p><strong>Số Điện Thoại:</strong> ${order.personalInfo.phone}</p>
             <p><strong>Địa Chỉ:</strong> ${order.personalInfo.address}</p>
             <!-- Thêm các trường thông tin khác của đơn hàng -->
-            <h4>Chi Tiết Đơn Hàng</h4>
+            <h4>Chi Tiết Đơn Hàng:${order.personalInfo.deliveryTime}</h4>
             <ul>`;
         
         order.cartItems.forEach(item => {

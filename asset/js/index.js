@@ -210,9 +210,10 @@ function login(event) {
         logInAccount = accountLogin;
         if (logInAccount.isAdmin==true) {
           // Nếu là admin, chuyển sang trang admin
+          
           document.getElementById('end-user').style.display = 'none'
           document.getElementsByClassName('admin-container')[0].style.display = 'flex'
-
+          window.location.reload();
           return;
         } else {
           loginIcon.style.display = 'none'

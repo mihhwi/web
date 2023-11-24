@@ -522,6 +522,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     submitButton.addEventListener('click', function () {
+        
         // Bước 1: Trích xuất thông tin cá nhân từ form
         const personalInfo = {
             name: document.getElementById('name').value,
@@ -537,6 +538,7 @@ document.addEventListener("DOMContentLoaded", function () {
             accountInfo: loggedInAccount,
             personalInfo: personalInfo,
             cartItems: cart, // Giả sử giỏ hàng đã được cập nhật trước đó
+            orderCode: generateOrderCode()  
         };
         updateOrderHistory(orderDetails);
 
@@ -656,15 +658,20 @@ function renderOrderHistory() {
         // Hiển thị danh sách đơn hàng
         let orderHtml = '';
         userOrders.forEach((order, index) => {
+            for(let i of cartItems)
+            {
+                var namePD=cartItems[i].name
+            }
+
             orderHtml += `<div class="order">
-            <h3>Đơn Hàng #${index + 1}</h3>
+            <h3>Đơn Hàng #${order.orderCode}</h3>
             <p><strong>Tên:</strong> ${order.personalInfo.name}</p>
             <p><strong>Số Điện Thoại:</strong> ${order.personalInfo.phone}</p>
             <p><strong>Địa Chỉ:</strong> ${order.personalInfo.address}</p>
             <p><strong>Phương Thức Thanh Toán:</strong> ${order.personalInfo.paymentMethod}</p>
             <p><strong>Thời Gian Giao Hàng:</strong> ${order.personalInfo.deliveryTime}</p>
             <p><strong>Ghi Chú:</strong> ${order.personalInfo.notes}</p>
-            <h4>Chi Tiết Đơn Hàng</h4>
+            <h4>Chi Tiết Đơn Hàng${namePD}</h4>
             <ul>`;
 
             order.cartItems.forEach(item => {
@@ -694,6 +701,18 @@ function updateOrderHistory(orderDetails) {
     // Lưu danh sách đơn hàng mới vào Local Storage
     localStorage.setItem('orders', JSON.stringify(orders));
     renderOrderHistory();
+}
+// mã đơn hàng
+function generateOrderCode() {
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1; // Tháng trong JavaScript bắt đầu từ 0
+    const year = currentDate.getFullYear() % 100; // Lấy hai chữ số cuối cùng của năm
+
+    // Hàm helper để tạo một số ngẫu nhiên từ 1000 đến 9999
+    const randomFourDigitNumber = () => Math.floor(Math.random() * 9000) + 1000;
+
+    return `dh.${day}${month}${year}${randomFourDigitNumber()}`;
 }
 
 
