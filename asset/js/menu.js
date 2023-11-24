@@ -172,13 +172,19 @@ function renderProducts() {
                 loginForm.style.display = 'block'
             }
             else if (true) {
+                let productToAdd = createCartProduct(htmlProducts[btnIndex]);
                 alert('Đã thêm vào giỏ hàng')
+                let cartProduct = {
+                    accountInfo: loggedInAccount,
+                    productInfo: productToAdd,
+                    count: 1
+                };
                 if (cart.length === 0)
-                    cart.push(createCartProduct(htmlProducts[btnIndex]));
+                    cart.push(cartProduct);
                 else {
                     let isFind = false;
                     for (let product of cart) {
-                        if (product.name == htmlProducts[btnIndex].name) {
+                        if (product.productInfo.name == productToAdd.name) {
                             product.count += 1;
                             isFind = true;
                             break;
@@ -186,7 +192,7 @@ function renderProducts() {
                     }
 
                     if (!isFind) {
-                        cart.push(createCartProduct(htmlProducts[btnIndex]));
+                        cart.push(cartProduct);
                     }
                 }
                 updateProductToCart();
@@ -305,33 +311,40 @@ renderCart();
 
 
 function renderCart() {
+    const loggedInAccount = JSON.parse(localStorage.getItem('loggedInAccount'));
+
+    // Lấy danh sách sản phẩm trong giỏ hàng từ Local Storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Lọc danh sách sản phẩm trong giỏ hàng theo tài khoản đã đăng nhập
+    const userCart = cart.filter(item => item.accountInfo.email === loggedInAccount.email);
     let cartHtml = ``;
     let Total = 0;
-    cart.forEach(item => Total += item.count * item.price)
+    cart.forEach(item => Total += item.accountInfo.count * item.accountInfo.price)
 
-    for (let item of cart) {
+    for (let item of userCart) {
         cartHtml += `<div id="cart-item">
         <div class="cart-container">
             <div class="item-img">
-                <img src="${item.img}" alt="">
+                <img src="${item.productInfo.img}" alt="">
             </div>
 
             <div class="item-name">
-                <p>${item.name}</p>
+                <p>${item.productInfo.name}</p>
             </div>
 
             <div class="item-control">
                 <div class="incrementer">
                     <button class="remove">-</button>
                     <div class="quantity">
-                        <p>${item.count}</p>
+                        <p>${item.productInfo.count}</p>
                     </div>
                     
                     <button class="add">+</button>
                 </div>
 
                 <div class="item-total-price">
-                    <p>${item.price * item.count}đ</p>
+                    <p>${item.productInfo.price * item.productInfo.count}đ</p>
                 </div>
 
                 <div class="remove-item">
@@ -396,17 +409,24 @@ function detailAddToCart() {
 
             if (!loggedInAccount) {
                 alert("Vui lòng đăng nhập");
-                var loginForm = document.getElementById('login_form');
+                let loginForm = document.getElementById('login_form');
                 loginForm.style.display = 'block'
             }
             if (true) {
+                let productToAdd = createCartProduct(htmlProducts[btnIndex]);
                 alert('Đã thêm vào giỏ hàng')
+                
+                let cartProduct = {
+                    accountInfo: loggedInAccount,
+                    productInfo: productToAdd,
+                    count: 1
+                };
                 if (cart.length === 0)
-                    cart.push(createCartProduct(htmlProducts[btnIndex]));
+                    cart.push(cartProduct);
                 else {
                     let isFind = false;
                     for (let product of cart) {
-                        if (product.name == htmlProducts[btnIndex].name) {
+                        if (product.productInfo.name == productToAdd.name) {
                             product.count += 1;
                             isFind = true;
                             break;
@@ -414,7 +434,7 @@ function detailAddToCart() {
                     }
 
                     if (!isFind) {
-                        cart.push(createCartProduct(htmlProducts[btnIndex]));
+                        cart.push(cartProduct);
                     }
                 }
                 updateProductToCart();
@@ -478,7 +498,7 @@ function OpenCart() {
             document.getElementById('box_giohang').style.display = 'block'
             renderProductsInOrderForm();
             closeModalCart()
-            deleteCart(0, cart.length);
+            // deleteCart(0, cart.length);
             updateProductToCart();
             renderCart();
         }
@@ -488,19 +508,26 @@ function OpenCart() {
 }
 // 
 function renderProductsInOrderForm() {
+    const loggedInAccount = JSON.parse(localStorage.getItem('loggedInAccount'));
+
+    // Lấy danh sách sản phẩm trong giỏ hàng từ Local Storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Lọc danh sách sản phẩm trong giỏ hàng theo tài khoản đã đăng nhập
+    const userCart = cart.filter(item => item.accountInfo.email === loggedInAccount.email);
     let productsHtml = ``;
 
-    for (let item of cart) {
+    for (let item of userCart) {
         productsHtml += `<div class="cart-item-in-order-form">
             <div class="item-img_cart ">
-                <img src="${item.img}" alt="">
+                <img src="${item.productInfo.img}" alt="">
             </div>
 
             <div class="item-details">
-                <p class="item-name_cart ">${item.name}</p>
-                <p class="item-price_cart">${item.price}đ</p>
-                <p class="item-quantity_cart">${item.count}</p>
-                <p class="item-total_cart">${item.price * item.count}đ</p>
+                <p class="item-name_cart ">${item.productInfo.name}</p>
+                <p class="item-price_cart">${item.productInfo.price}đ</p>
+                <p class="item-quantity_cart">${item.productInfo.count}</p>
+                <p class="item-total_cart">${item.productInfo.price * item.productInfo.count}đ</p>
                 
             </div>
         </div>`;
@@ -548,7 +575,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // localStorage.setItem('orders', JSON.stringify(orders));
 
         // Bước 4: Xóa dữ liệu giỏ hàng trong localStorage
-        localStorage.removeItem('cart');
+        // localStorage.removeItem('cart');
+        deleteCart(0, cart.length);
+        updateProductToCart();
+            renderCart();
+        
         // Lấy danh sách các phần tử có class là 'cart-item-in-order-form'
         var elementsToRemove = document.querySelectorAll('.cart-item-in-order-form');
 
@@ -653,15 +684,11 @@ function renderOrderHistory() {
     if (loggedInAccount) {
         // Lọc danh sách đơn hàng theo tài khoản đã đăng nhập
         const userOrders = orders.filter(order => order.accountInfo.email === loggedInAccount.email);
-
-
+       
         // Hiển thị danh sách đơn hàng
         let orderHtml = '';
         userOrders.forEach((order, index) => {
-            for(let i of cartItems)
-            {
-                var namePD=cartItems[i].name
-            }
+            
 
             orderHtml += `<div class="order">
             <h3>Đơn Hàng #${order.orderCode}</h3>
@@ -671,11 +698,11 @@ function renderOrderHistory() {
             <p><strong>Phương Thức Thanh Toán:</strong> ${order.personalInfo.paymentMethod}</p>
             <p><strong>Thời Gian Giao Hàng:</strong> ${order.personalInfo.deliveryTime}</p>
             <p><strong>Ghi Chú:</strong> ${order.personalInfo.notes}</p>
-            <h4>Chi Tiết Đơn Hàng${namePD}</h4>
+            <h4>Chi Tiết Đơn Hàng</h4>
             <ul>`;
 
             order.cartItems.forEach(item => {
-                orderHtml += `<li>${item.name} - ${item.count} - ${item.price * item.count}đ</li>`;
+                orderHtml += `<li>${item.name} -sl: ${item.count} - giá:${item.price * item.count}đ</li>`;
             });
 
             orderHtml += `</ul></div>`;
