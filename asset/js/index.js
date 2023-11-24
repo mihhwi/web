@@ -70,9 +70,41 @@ function transWidth() {
 }
 
 
-//slider-show
+//slider
+let sliderListImg = ['asset/img/shrimpBurger.jpg', 'asset/img/item6.jpg', 'asset/img/maxresdefault.jpg'];
+var imgFeature = document.querySelector('#img-feature');
+var prevBtn = document.querySelector('.prev');
+var nextBtn = document.querySelector('.next');
+var currentIndex = 0;
 
-//end slider-show
+
+
+prevBtn.addEventListener('click', e=> {
+    if (currentIndex == 0)
+    {
+        currentIndex = sliderListImg.length - 1;
+    }
+    else 
+        currentIndex--;
+    imgFeature.src = sliderListImg[currentIndex];
+})
+
+nextBtn.addEventListener('click', e=> {
+
+    if (currentIndex == sliderListImg.length - 1)
+    {
+        currentIndex = 0;
+    }
+    else 
+        currentIndex++;
+    imgFeature.src = sliderListImg[currentIndex];
+})
+
+setInterval(() => {nextBtn.click()}, 3000);
+
+//end slider
+
+
 function resetWidth() {
   findBox.style.width = ''; // Reset to the default width (empty string)
 }
@@ -251,7 +283,7 @@ function login(event) {
 document.addEventListener('DOMContentLoaded', function () {
   var loggedInAccount = JSON.parse(localStorage.getItem('loggedInAccount'));
 
-  if (loggedInAccount !== null) {
+  if (loggedInAccount != null) {
     if (loggedInAccount.isAdmin) {
       // Nếu là admin, chuyển sang trang admin
       document.getElementById('end-user').style.display = 'none'

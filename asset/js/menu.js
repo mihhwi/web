@@ -123,8 +123,6 @@ function taomenu() {
     var nav = document.querySelector("#nav-container ul");
     nav.innerHTML = finalData;
     renderProducts();
-    // renderProductsInPage(0);
-    
 }
 
 // ============================================================================================================================================
@@ -157,10 +155,7 @@ function renderProducts() {
         }
     }
     document.querySelector("#pageNumbers #container").innerHTML = pageNumberData;
-    renderProductsInPage(0)
-
-    
-
+    renderProductsInPage(0);
 }
 
 function renderProductsInPage(index = 0) {
@@ -189,7 +184,6 @@ function renderProductsInPage(index = 0) {
                             </div>`
     }
     document.querySelector("#content-container").innerHTML = finalData;
-    // renderProducts();
 
     // buy
     const buyBtns = document.querySelectorAll(".addToCart");
@@ -229,10 +223,6 @@ function renderProductsInPage(index = 0) {
                 renderCart();
 
             }
-            // else {
-            //     alert('Bạn phải đăng nhập để có thể mua hàng!!');
-
-            // }
         })
 
         details[i].addEventListener("click", function detail() {
@@ -305,7 +295,6 @@ function updateCount(index, count) {
     renderCart()
 }
 
-// cart.push(createCartProduct(products[1]));
 updateProductToCart();
 renderCart();
 
