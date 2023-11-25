@@ -202,13 +202,19 @@ function renderProductsInPage(index = 0) {
                 loginForm.style.display = 'block'
             }
             else if (true) {
+                let productToAdd = createCartProduct(htmlProducts[btnIndex]);
                 alert('Đã thêm vào giỏ hàng')
+                let cartProduct = {
+                    accountInfo: loggedInAccount,
+                    productInfo: productToAdd,
+                    count: 1
+                };
                 if (cart.length === 0)
-                    cart.push(createCartProduct(htmlProducts[btnIndex]));
+                    cart.push(cartProduct);
                 else {
                     let isFind = false;
                     for (let product of cart) {
-                        if (product.name == htmlProducts[btnIndex].name) {
+                        if (product.productInfo.name == productToAdd.name) {
                             product.count += 1;
                             isFind = true;
                             break;
@@ -216,7 +222,7 @@ function renderProductsInPage(index = 0) {
                     }
 
                     if (!isFind) {
-                        cart.push(createCartProduct(htmlProducts[btnIndex]));
+                        cart.push(cartProduct);
                     }
                 }
                 updateProductToCart();
@@ -300,19 +306,27 @@ renderCart();
 
 
 function renderCart() {
-    let cartHtml = ``;
-    let Total = 0;
-    cart.forEach(item => Total += item.count * item.price)
+    const loggedInAccount = JSON.parse(localStorage.getItem('loggedInAccount'));
 
-    for (let item of cart) {
-        cartHtml += `<div id="cart-item">
+    // Lấy danh sách sản phẩm trong giỏ hàng từ Local Storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Lọc danh sách sản phẩm trong giỏ hàng theo tài khoản đã đăng nhập
+    const userCart = cart.filter(item => item.accountInfo.email === loggedInAccount.email);
+    // let cartHtml = ``;
+    let Total = 0;
+    let cartHtml = userCart.map(item => {
+        // Tính tổng giá trị
+        Total += item.count * item.productInfo.price;
+
+        return `<div id="cart-item">
         <div class="cart-container">
             <div class="item-img">
-                <img src="${item.img}" alt="">
+                <img src="${item.productInfo.img}" alt="">
             </div>
 
             <div class="item-name">
-                <p>${item.name}</p>
+                <p>${item.productInfo.name}</p>
             </div>
 
             <div class="item-control">
@@ -326,7 +340,7 @@ function renderCart() {
                 </div>
 
                 <div class="item-total-price">
-                    <p>${item.price * item.count}đ</p>
+                    <p>${item.productInfo.price * item.count}đ</p>
                 </div>
 
                 <div class="remove-item">
@@ -334,8 +348,8 @@ function renderCart() {
                 </div>
             </div>
         </div>
-    </div>`
-    }
+    </div>`;
+}).join('');
     document.querySelector('#cart-content').innerHTML = cartHtml;
 
     let deleteBtns = document.querySelectorAll('.remove-item');
@@ -391,17 +405,24 @@ function detailAddToCart() {
 
             if (!loggedInAccount) {
                 alert("Vui lòng đăng nhập");
-                var loginForm = document.getElementById('login_form');
+                let loginForm = document.getElementById('login_form');
                 loginForm.style.display = 'block'
             }
             if (true) {
+                let productToAdd = createCartProduct(htmlProducts[btnIndex]);
                 alert('Đã thêm vào giỏ hàng')
+                
+                let cartProduct = {
+                    accountInfo: loggedInAccount,
+                    productInfo: productToAdd,
+                    count: 1
+                };
                 if (cart.length === 0)
-                    cart.push(createCartProduct(htmlProducts[btnIndex]));
+                    cart.push(cartProduct);
                 else {
                     let isFind = false;
                     for (let product of cart) {
-                        if (product.name == htmlProducts[btnIndex].name) {
+                        if (product.productInfo.name == productToAdd.name) {
                             product.count += 1;
                             isFind = true;
                             break;
@@ -409,7 +430,7 @@ function detailAddToCart() {
                     }
 
                     if (!isFind) {
-                        cart.push(createCartProduct(htmlProducts[btnIndex]));
+                        cart.push(cartProduct);
                     }
                 }
                 updateProductToCart();
@@ -473,7 +494,7 @@ function OpenCart() {
             document.getElementById('box_giohang').style.display = 'block'
             renderProductsInOrderForm();
             closeModalCart()
-            deleteCart(0, cart.length);
+            // deleteCart(0, cart.length);
             updateProductToCart();
             renderCart();
         }
@@ -483,19 +504,26 @@ function OpenCart() {
 }
 // 
 function renderProductsInOrderForm() {
+    const loggedInAccount = JSON.parse(localStorage.getItem('loggedInAccount'));
+
+    // Lấy danh sách sản phẩm trong giỏ hàng từ Local Storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Lọc danh sách sản phẩm trong giỏ hàng theo tài khoản đã đăng nhập
+    const userCart = cart.filter(item => item.accountInfo.email === loggedInAccount.email);
     let productsHtml = ``;
 
-    for (let item of cart) {
+    for (let item of userCart) {
         productsHtml += `<div class="cart-item-in-order-form">
             <div class="item-img_cart ">
-                <img src="${item.img}" alt="">
+                <img src="${item.productInfo.img}" alt="">
             </div>
 
             <div class="item-details">
-                <p class="item-name_cart ">${item.name}</p>
-                <p class="item-price_cart">${item.price}đ</p>
-                <p class="item-quantity_cart">${item.count}</p>
-                <p class="item-total_cart">${item.price * item.count}đ</p>
+                <p class="item-name_cart ">${item.productInfo.name}</p>
+                <p class="item-price_cart">${item.productInfo.price}đ</p>
+                <p class="item-quantity_cart">${item.productInfo.count}</p>
+                <p class="item-total_cart">${item.productInfo.price * item.count}đ</p>
                 
             </div>
         </div>`;
@@ -517,6 +545,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     submitButton.addEventListener('click', function () {
+        
         // Bước 1: Trích xuất thông tin cá nhân từ form
         const personalInfo = {
             name: document.getElementById('name').value,
@@ -532,6 +561,7 @@ document.addEventListener("DOMContentLoaded", function () {
             accountInfo: loggedInAccount,
             personalInfo: personalInfo,
             cartItems: cart, // Giả sử giỏ hàng đã được cập nhật trước đó
+            orderCode: generateOrderCode()  
         };
         updateOrderHistory(orderDetails);
 
@@ -541,7 +571,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // localStorage.setItem('orders', JSON.stringify(orders));
 
         // Bước 4: Xóa dữ liệu giỏ hàng trong localStorage
-        localStorage.removeItem('cart');
+        // localStorage.removeItem('cart');
+        deleteCart(0, cart.length);
+        updateProductToCart();
+            renderCart();
+        
         // Lấy danh sách các phần tử có class là 'cart-item-in-order-form'
         var elementsToRemove = document.querySelectorAll('.cart-item-in-order-form');
 
@@ -646,13 +680,14 @@ function renderOrderHistory() {
     if (loggedInAccount) {
         // Lọc danh sách đơn hàng theo tài khoản đã đăng nhập
         const userOrders = orders.filter(order => order.accountInfo.email === loggedInAccount.email);
-
-
+       
         // Hiển thị danh sách đơn hàng
         let orderHtml = '';
         userOrders.forEach((order, index) => {
+            
+
             orderHtml += `<div class="order">
-            <h3>Đơn Hàng #${index + 1}</h3>
+            <h3>Đơn Hàng #${order.orderCode}</h3>
             <p><strong>Tên:</strong> ${order.personalInfo.name}</p>
             <p><strong>Số Điện Thoại:</strong> ${order.personalInfo.phone}</p>
             <p><strong>Địa Chỉ:</strong> ${order.personalInfo.address}</p>
@@ -663,7 +698,7 @@ function renderOrderHistory() {
             <ul>`;
 
             order.cartItems.forEach(item => {
-                orderHtml += `<li>${item.name} - ${item.count} - ${item.price * item.count}đ</li>`;
+                orderHtml += `<li>${item.productInfo.name} - sl: ${item.productInfo.count} - giá: ${item.productInfo.price * item.productInfo.count}đ</li>`;
             });
 
             orderHtml += `</ul></div>`;
@@ -689,6 +724,18 @@ function updateOrderHistory(orderDetails) {
     // Lưu danh sách đơn hàng mới vào Local Storage
     localStorage.setItem('orders', JSON.stringify(orders));
     renderOrderHistory();
+}
+// mã đơn hàng
+function generateOrderCode() {
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1; // Tháng trong JavaScript bắt đầu từ 0
+    const year = currentDate.getFullYear() % 100; // Lấy hai chữ số cuối cùng của năm
+
+    // Hàm helper để tạo một số ngẫu nhiên từ 1000 đến 9999
+    const randomFourDigitNumber = () => Math.floor(Math.random() * 9000) + 1000;
+
+    return `dh.${day}${month}${year}${randomFourDigitNumber()}`;
 }
 
 

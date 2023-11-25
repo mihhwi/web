@@ -272,3 +272,80 @@ body {
     height: 50px;
     width: 100%;
 }
+/* css lịch sử đặt hàng */
+#order-history {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+/* CSS cho mỗi đơn hàng */
+.order {
+    margin-bottom: 20px;
+    /* overflow: hidden;
+    height: 42px; */
+}
+.open_order{
+    height: fit-content;
+    overflow:visible;
+}
+.ti-arrow-circle-down {
+    position: fixed;
+    right: 0;
+    padding: 10px;
+    color: #fffefc;
+    font-size: larger;
+}
+/* CSS cho tiêu đề đơn hàng */
+.order h3 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* CSS cho chi tiết đơn hàng */
+.order ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* CSS cho mỗi sản phẩm trong đơn hàng */
+.order li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* CSS cho phần thông tin khách hàng */
+.order p {
+    margin: 5px 0;
+}
+
+/* CSS cho chi tiết đơn hàng */
+.order h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* CSS cho nút xác nhận đơn hàng */
+.confirm-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.confirm-btn:hover {
+    background-color: #45a049;
+}

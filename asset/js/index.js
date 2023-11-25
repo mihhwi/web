@@ -224,7 +224,7 @@ forgetAccountBtn[0].addEventListener('click', forgetPassAcc)
 var logInAccount = '';
 
 //login
-// var accountLogin = [];
+var accountLogin = [];
 // test()
 function login(event) {
   event.preventDefault();
@@ -245,9 +245,10 @@ function login(event) {
         logInAccount = accountLogin;
         if (logInAccount.isAdmin == true) {
           // Nếu là admin, chuyển sang trang admin
+          
           document.getElementById('end-user').style.display = 'none'
           document.getElementsByClassName('admin-container')[0].style.display = 'flex'
-
+          window.location.reload();
           return;
         } else {
           loginIcon.style.display = 'none'
@@ -263,7 +264,7 @@ function login(event) {
           sexSelect.disabled = true;
           birthdayInput.disabled = true;
           document.getElementsByClassName('login_input')[0].reset();
-
+          window.location.reload();
         }
       }
       else {
@@ -296,6 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
       loginIcon.style.display = 'none';
       user.textContent = logInAccount.fullName;
       LogOut.style.display = 'flex';
+
     }
   }
 });
