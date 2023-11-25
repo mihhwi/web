@@ -131,18 +131,20 @@ const orderHistoryContainer = document.getElementById('order-history-container')
 if (orders.length > 0) {
     let orderHtml = '<h2>Đơn Hàng Đã Đặt</h2>';
     
+    
     orders.forEach((order, index) => {
         orderHtml += `<div class="order">
+            <div class="ti-arrow-circle-down"></div>
             <h3>Đơn Hàng #${order.orderCode}</h3>
             <p><strong>Tên:</strong> ${order.personalInfo.name}</p>
             <p><strong>Số Điện Thoại:</strong> ${order.personalInfo.phone}</p>
             <p><strong>Địa Chỉ:</strong> ${order.personalInfo.address}</p>
             <!-- Thêm các trường thông tin khác của đơn hàng -->
-            <h4>Chi Tiết Đơn Hàng:${order.personalInfo.deliveryTime}</h4>
+            <h4>Chi Tiết Đơn Hàng:</h4>
             <ul>`;
         
         order.cartItems.forEach(item => {
-            orderHtml += `<li>${item.name} - ${item.count} - ${item.price * item.count}đ</li>`;
+            orderHtml += `<li>${item.productInfo.name} - ${item.productInfo.count} - ${item.productInfo.price * item.productInfo.count}đ</li>`;
         });
 
         orderHtml += `</ul></div>`;
@@ -154,6 +156,82 @@ if (orders.length > 0) {
 }
 
 }
+
+
+// doanh thu
+// Calculate weekly revenue
+function calculateWeeklyRevenue(orders) {
+    return calculateRevenue(orders, 'week');
+}
+
+// Calculate monthly revenue
+function calculateMonthlyRevenue(orders) {
+    return calculateRevenue(orders, 'month');
+}
+
+// Generic function to calculate revenue based on time period ('week' or 'month')
+function calculateRevenue(orders, timePeriod) {
+    const revenueData = {};
+
+    orders.forEach(order => {
+        const orderDate = new Date(order.orderTime);
+        const timeValue = timePeriod === 'week' ? getWeekNumber(orderDate) : orderDate.getMonth() + 1;
+
+        // Calculate revenue based on the time period
+        revenueData[timeValue] = (revenueData[timeValue] || 0) + calculateOrderTotal(order);
+    });
+
+    return revenueData;
+}
+
+// Display revenue on the interface
+function displayRevenue(revenueData) {
+    document.getElementById('week_sale').querySelector('.input_sale').value = revenueData.weeklyRevenue || 0;
+    document.getElementById('month_sale').querySelector('.input_sale').value = revenueData.monthlyRevenue || 0;
+}
+
+// Calculate total order amount
+function calculateOrderTotal(order) {
+    return order.cartItems.reduce((total, item) => total + item.productInfo.price * item.productInfo.count, 0);
+}
+
+// Get week number from date
+function getWeekNumber(date) {
+    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+    const pastDays = (date - firstDayOfYear) / 86400000; // 86400000 milliseconds in a day
+    return Math.ceil((pastDays + firstDayOfYear.getDay() + 1) / 7);
+}
+
+// Lấy danh sách đơn hàng từ Local Storage
+const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+// Tính toán doanh thu
+const weeklyRevenue = calculateWeeklyRevenue(orders);
+const monthlyRevenue = calculateMonthlyRevenue(orders);
+
+// Hiển thị doanh thu
+displayRevenue({ weeklyRevenue, monthlyRevenue });
+
+// doanh thu tổng
+// Calculate total revenue from all orders
+function calculateTotalRevenue(orders) {
+    return orders.reduce((total, order) => total + calculateOrderTotal(order), 0);
+}
+
+// Lấy danh sách đơn hàng từ Local Storage
+const order = JSON.parse(localStorage.getItem('orders')) || [];
+
+// Tính toán doanh thu tổng
+const totalRevenue = calculateTotalRevenue(order);
+
+// Hiển thị doanh thu tổng
+displayTotalRevenue(totalRevenue);
+
+// Function to display total revenue on the interface
+function displayTotalRevenue(totalRevenue) {
+    document.getElementById('total_sale').querySelector('.input_sale').value = totalRevenue || 0;
+}
+
 
 
 

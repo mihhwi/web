@@ -318,12 +318,13 @@ function renderCart() {
 
     // Lọc danh sách sản phẩm trong giỏ hàng theo tài khoản đã đăng nhập
     const userCart = cart.filter(item => item.accountInfo.email === loggedInAccount.email);
-    let cartHtml = ``;
+    // let cartHtml = ``;
     let Total = 0;
-    cart.forEach(item => Total += item.accountInfo.count * item.accountInfo.price)
+    let cartHtml = userCart.map(item => {
+        // Tính tổng giá trị
+        Total += item.count * item.productInfo.price;
 
-    for (let item of userCart) {
-        cartHtml += `<div id="cart-item">
+        return `<div id="cart-item">
         <div class="cart-container">
             <div class="item-img">
                 <img src="${item.productInfo.img}" alt="">
@@ -337,14 +338,14 @@ function renderCart() {
                 <div class="incrementer">
                     <button class="remove">-</button>
                     <div class="quantity">
-                        <p>${item.productInfo.count}</p>
+                        <p>${item.count}</p>
                     </div>
                     
                     <button class="add">+</button>
                 </div>
 
                 <div class="item-total-price">
-                    <p>${item.productInfo.price * item.productInfo.count}đ</p>
+                    <p>${item.productInfo.price * item.count}đ</p>
                 </div>
 
                 <div class="remove-item">
@@ -352,8 +353,8 @@ function renderCart() {
                 </div>
             </div>
         </div>
-    </div>`
-    }
+    </div>`;
+}).join('');
     document.querySelector('#cart-content').innerHTML = cartHtml;
 
     let deleteBtns = document.querySelectorAll('.remove-item');
@@ -527,7 +528,7 @@ function renderProductsInOrderForm() {
                 <p class="item-name_cart ">${item.productInfo.name}</p>
                 <p class="item-price_cart">${item.productInfo.price}đ</p>
                 <p class="item-quantity_cart">${item.productInfo.count}</p>
-                <p class="item-total_cart">${item.productInfo.price * item.productInfo.count}đ</p>
+                <p class="item-total_cart">${item.productInfo.price * item.count}đ</p>
                 
             </div>
         </div>`;
@@ -702,7 +703,7 @@ function renderOrderHistory() {
             <ul>`;
 
             order.cartItems.forEach(item => {
-                orderHtml += `<li>${item.name} -sl: ${item.count} - giá:${item.price * item.count}đ</li>`;
+                orderHtml += `<li>${item.productInfo.name} - sl: ${item.productInfo.count} - giá: ${item.productInfo.price * item.productInfo.count}đ</li>`;
             });
 
             orderHtml += `</ul></div>`;
